@@ -3,52 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mustafa Aslantaş | Portfolyo</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>Portfolyo | Mustafa ASLANTAŞ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1 class="fade-in">Mustafa Aslantaş</h1>
-        <p class="fade-in">Computer Engineer | Java & Spring Boot Developer</p>
-        <nav>
-            <ul>
-                <li><a href="#about">Hakkımda</a></li>
-                <li><a href="#projects">Projeler</a></li>
-                <li><a href="#contact">İletişim</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Navigasyon -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">Ana Sayfa</a></li>
+            <li><a href="#projects">Projeler</a></li>
+            <li><a href="#skills">Yetenekler</a></li>
+            <li><a href="#contact">İletişim</a></li>
+        </ul>
+    </nav>
 
-    <section id="about" class="slide-in">
-        <h2>Hakkımda</h2>
-        <p>Merhaba! Ben Mustafa Aslantaş. Java ve Spring Boot kullanarak yazılım geliştiren bir bilgisayar mühendisiyim. Otomasyon testleri ve makine öğrenmesi alanlarına ilgi duyuyorum.</p>
-    </section>
-
-    <section id="projects" class="slide-in">
-        <h2>Projelerim</h2>
-        <div class="project">
-            <h3>Kitapyurdu Test Otomasyonu</h3>
-            <p>Selenium ve JUnit kullanarak geliştirdiğim test otomasyonu.</p>
-        </div>
-        <div class="project">
-            <h3>Hava Durumu Karşılaştırma Uygulaması</h3>
-            <p>Postman ve OpenWeather API kullanarak iki şehir arasındaki hava durumunu karşılaştıran bir uygulama.</p>
+    <!-- Ana Sayfa -->
+    <section id="home" class="section">
+        <div class="hero-content">
+            <h1 class="hero-title">Merhaba, Ben <span class="accent-text">Mustafa ASLANTAŞ</span></h1>
+            <p class="hero-subtitle">Computer Engineer | Java & Spring Boot Developer | Full Stack Geliştirici | Software Test Engineer | Machine Learning Enthusiast</p>
         </div>
     </section>
 
-    <section id="contact" class="slide-in">
-        <h2>İletişim</h2>
-        <form>
-            <input type="text" placeholder="Adınız" required>
-            <input type="email" placeholder="E-posta" required>
-            <textarea placeholder="Mesajınız" required></textarea>
-            <button type="submit">Gönder</button>
+    <!-- Projeler -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Projelerim</h2>
+        <div class="projects-grid">
+            <!-- Proje kartları script.js'den gelecek -->
+        </div>
+    </section>
+
+    <!-- Yetenekler -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Yeteneklerim</h2>
+        <div class="skills-container">
+            <!-- Yetenekler script.js'den gelecek -->
+        </div>
+    </section>
+
+    <!-- İletişim -->
+    <section id="contact" class="section">
+        <h2 class="section-title">İletişim</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Adınız" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="E-posta" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="5" placeholder="Mesajınız" required></textarea>
+            </div>
+            <button type="submit" class="btn">Gönder</button>
         </form>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Mustafa Aslantaş. Tüm hakları saklıdır.</p>
-    </footer>
+    <!-- JavaScript Dosyası -->
+    <script src="script.js"></script>
 </body>
 </html>
