@@ -362,3 +362,49 @@ textarea {
         text-align: left;
     }
 }
+
+/* Fotoğraf Çerçevesi */
+.photo-frame {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 15px;
+    padding: 15px;
+    background: linear-gradient(45deg, 
+        var(--accent-color) 0%, 
+        rgba(0,255,136,0.3) 100%
+    );
+    box-shadow: 0 10px 30px rgba(0,255,136,0.2);
+}
+
+.profile-photo {
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.photo-border {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.profile-photo:hover {
+    transform: rotate(-2deg) scale(1.02);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .photo-frame {
+        max-width: 300px;
+        margin-top: 2rem;
+    }
+}
