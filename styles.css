@@ -201,7 +201,7 @@ textarea {
 
 /* Profil Fotoğrafı ve Animasyonlar */
 .profile-container {
-    position: relative;
+    position: left;
     width: 250px;
     height: 250px;
     margin: 0 auto 2rem;
@@ -212,7 +212,7 @@ textarea {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    position: relative;
+    position: left;
     z-index: 2;
     border: 3px solid var(--accent-color);
     box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
