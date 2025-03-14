@@ -1,14 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".slide-in");
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
+document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('a[href^="#"]');
+  
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();  // Varsayılan anında atlama davranışını engeller
+      const targetID = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetID);
+      
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth'
         });
-    }, { threshold: 0.3 });
-
-    sections.forEach(section => observer.observe(section));
+      }
+    });
+  });
 });
