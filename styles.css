@@ -1,3 +1,4 @@
+/* styles.css */
 :root {
     --primary-color: #1a1a1a;
     --secondary-color: #2a2a2a;
@@ -102,6 +103,188 @@ body {
     color: var(--accent-color);
 }
 
+.profile-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 2rem;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+.tech-circle {
+    position: absolute;
+    border: 2px solid rgba(0, 255, 136, 0.5);
+    border-radius: 50%;
+    animation: pulse 4s infinite;
+}
+
+.tech-circle {
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
+}
+
+.tech-circle.small {
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+.social-floating {
+    position: fixed;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1001;
+}
+
+.social-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.15);
+    box-shadow: 0 8px 15px rgba(0, 255, 136, 0.4);
+}
+
+.x { color: var(--text-color) !important; } 
+.instagram { color: #E1306C; }
+.linkedin { color: #0077B5; }
+.github { color: var(--text-color) !important; }
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .social-floating {
+        right: 15px;
+        gap: 15px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
+#about {
+    background: var(--primary-color);
+    padding: 4rem 2rem;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.photo-frame {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 15px;
+    padding: 15px;
+    background: linear-gradient(45deg, 
+        var(--accent-color) 0%, 
+        rgba(0,255,136,0.3) 100%
+    );
+    box-shadow: 0 10px 30px rgba(0,255,136,0.2);
+}
+
+.photo-frame img {
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.photo-border {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.photo-frame:hover img {
+    transform: rotate(-2deg) scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .photo-frame {
+        max-width: 300px;
+        margin-top: 2rem;
+    }
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -178,233 +361,4 @@ textarea {
 
 .btn:hover {
     transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .nav-links {
-        gap: 1rem;
-        font-size: 0.9rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Profil Fotoğrafı ve Animasyonlar */
-.profile-container {
-    position: left;
-    width: 250px;
-    height: 250px;
-    margin: 0 auto 2rem;
-}
-
-.profile-photo {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    position: left;
-    z-index: 2;
-    border: 3px solid var(--accent-color);
-    box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
-}
-
-.tech-circle {
-    position: absolute;
-    border: 2px solid rgba(0, 255, 136, 0.5);
-    border-radius: 50%;
-    animation: pulse 4s infinite;
-}
-
-.tech-circle {
-    width: 110%;
-    height: 110%;
-    top: -5%;
-    left: -5%;
-}
-
-.tech-circle.small {
-    width: 90%;
-    height: 90%;
-    top: 5%;
-    left: 5%;
-    animation-delay: 1s;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.05); opacity: 0.4; }
-    100% { transform: scale(1); opacity: 0.8; }
-}
-/* Sosyal Medya Butonları */
-.social-floating {
-    position: fixed;
-    top: 50%;
-    right: 30px;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 1001;
-}
-
-.social-icon {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.social-icon:hover {
-    transform: translateY(-5px) scale(1.15);
-    box-shadow: 0 8px 15px rgba(0, 255, 136, 0.4);
-}
-
-.x { color: var(--text-color) !important; } 
-.instagram { color: #E1306C; }
-.linkedin { color: #0077B5; }
-.github { color: var(--text-color) !important; }
-
-@media (max-width: 768px) {
-    .social-floating {
-        right: 15px;
-        gap: 15px;
-    }
-    .social-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-.social-icon:hover i {
-    animation: pulse 0.5s ease;
-}
-
-/* Hakkımda Stilleri */
-#about {
-    background: var(--primary-color);
-    padding: 4rem 2rem;
-}
-
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    margin-top: 2rem;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1.5rem;
-}
-
-.expertise-list {
-    list-style: none;
-    margin-top: 1.5rem;
-}
-
-.expertise-list li {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    border-left: 3px solid var(--accent-color);
-}
-
-.about-visual img {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    display: block;
-}
-
-/* Responsive Tasarım */
-@media (max-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .expertise-list li {
-        text-align: left;
-    }
-}
-
-/* Fotoğraf Çerçevesi */
-.photo-frame {
-    position: relative;
-    max-width: 400px;
-    margin: 0 auto;
-    border-radius: 15px;
-    padding: 15px;
-    background: linear-gradient(45deg, 
-        var(--accent-color) 0%, 
-        rgba(0,255,136,0.3) 100%
-    );
-    box-shadow: 0 10px 30px rgba(0,255,136,0.2);
-}
-
-.profile-photo {
-    width: 100%;
-    border-radius: 10px;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.3s ease;
-}
-
-.photo-border {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 2px solid var(--accent-color);
-    border-radius: 20px;
-    z-index: 0;
-    opacity: 0.5;
-}
-
-.profile-photo:hover {
-    transform: rotate(-2deg) scale(1.02);
-}
-
-/* Responsive Tasarım */
-@media (max-width: 768px) {
-    .photo-frame {
-        max-width: 300px;
-        margin-top: 2rem;
-    }
 }
