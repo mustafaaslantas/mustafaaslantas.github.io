@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolyo | Mustafa ASLANTAŞ</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Mustafa ASLANTAŞ | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -22,34 +22,27 @@
     <section id="home" class="section">
         <div class="hero-content">
             <h1 class="hero-title">Merhaba, Ben <span class="accent-text">Mustafa ASLANTAŞ</span></h1>
-            <p class="hero-subtitle">Computer Engineer | Java & Spring Boot Developer | Full Stack Geliştirici | Software Test Engineer | Machine Learning Enthusiast</p>
+            <p class="hero-subtitle">Computer Engineer | Full Stack Developer</p>
         </div>
     </section>
 
     <!-- Projeler -->
     <section id="projects" class="section">
         <h2 class="section-title">Projelerim</h2>
-        <div class="projects-grid">
-            <!-- Proje kartları script.js'den gelecek -->
-        </div>
+        <div class="projects-grid"></div>
     </section>
 
     <!-- Yetenekler -->
     <section id="skills" class="section">
         <h2 class="section-title">Yeteneklerim</h2>
-        <div class="skills-container">
-            <!-- Yetenekler script.js'den gelecek -->
-        </div>
+        <div class="skills-container"></div>
     </section>
 
-    <!-- İletişim Formu -->
-    <section id="contact">
-        <h2>İletişim</h2>
-        <form action="https://formspree.io/f/{FORM-ID}" method="POST">
-            <!-- Honeypot Spam Koruması -->
+    <!-- İletişim -->
+    <section id="contact" class="section">
+        <h2 class="section-title">İletişim</h2>
+        <form class="contact-form" action="https://formspree.io/f/xldjdela" method="POST">
             <input type="text" name="_gotcha" style="display:none">
-            
-            <!-- Kullanıcı Bilgileri -->
             <div class="form-group">
                 <input type="text" name="name" placeholder="Adınız Soyadınız" required>
             </div>
@@ -59,19 +52,11 @@
             <div class="form-group">
                 <textarea name="message" rows="5" placeholder="Mesajınız..." required></textarea>
             </div>
-
-            <!-- reCAPTCHA -->
             <div class="g-recaptcha" data-sitekey="SITE-KEY"></div>
-            
-            <!-- Gönder Butonu -->
-            <button type="submit" class="submit-btn">
-                <span class="btn-text">Mesaj Gönder</span>
-                <div class="loading-animation"></div>
-            </button>
+            <button type="submit" class="btn">Gönder</button>
         </form>
     </section>
 
-    <!-- Scriptler -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="script.js"></script>
 </body>
