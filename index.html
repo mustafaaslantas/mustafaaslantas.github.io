@@ -42,23 +42,25 @@
         </div>
     </section>
 
-    <!-- İletişim -->
-    <section id="contact" class="section">
-        <h2 class="section-title">İletişim</h2>
-        <form class="contact-form">
+    <!-- İletişim Formu -->
+    <section id="contact">
+        <h2>İletişim</h2>
+        <form action="https://formspree.io/f/xldjdela" method="POST">
+            <!-- Honeypot Spam Koruması -->
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <!-- Kullanıcı Bilgileri -->
             <div class="form-group">
-                <input type="text" placeholder="Adınız" required>
+                <input type="text" name="name" placeholder="Adınız Soyadınız" required>
             </div>
             <div class="form-group">
-                <input type="email" placeholder="E-posta" required>
+                <input type="email" name="email" placeholder="E-posta Adresiniz" required>
             </div>
             <div class="form-group">
-                <textarea rows="5" placeholder="Mesajınız" required></textarea>
+                <textarea name="message" rows="5" placeholder="Mesajınız..." required></textarea>
             </div>
-            <button type="submit" class="btn">Gönder</button>
-        </form>
-    </section>
-
+ <!-- reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="6LfjtfQqAAAAADOnqF2QW6BIRbqPDfJ4tzWartRf"></div>
     <!-- JavaScript Dosyası -->
     <script src="./script.js"></script>
 </body>

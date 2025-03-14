@@ -89,8 +89,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Form Gönderimi
-document.querySelector('.contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Buraya form gönderim kodlarını ekleyebilirsin
+    // Form Gönderim Animasyonu
+document.querySelector('form').addEventListener('submit', (e) => {
+    const btn = document.querySelector('.submit-btn');
+    btn.classList.add('loading');
+    btn.disabled = true;
+    setTimeout(() => {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+    }, 2000);
+});
     alert('Mesajınız gönderildi!');
 });
