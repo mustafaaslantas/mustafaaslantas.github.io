@@ -22,7 +22,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Navigasyon */
 .navbar {
     position: fixed;
     width: 100%;
@@ -43,8 +42,8 @@ body {
     color: var(--text-color);
     text-decoration: none;
     font-size: 1.1rem;
-    transition: 0.3s;
     position: relative;
+    transition: 0.3s;
 }
 
 .nav-links a::after {
@@ -62,7 +61,6 @@ body {
     width: 100%;
 }
 
-/* Bölümler */
 .section {
     min-height: 100vh;
     padding: 8rem 2rem 2rem;
@@ -89,7 +87,6 @@ body {
     color: var(--accent-color);
 }
 
-/* Ana Sayfa */
 #home {
     justify-content: center;
     text-align: center;
@@ -105,7 +102,6 @@ body {
     color: var(--accent-color);
 }
 
-/* Projeler */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -125,7 +121,6 @@ body {
     transform: translateY(-10px);
 }
 
-/* Yetenekler */
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -147,7 +142,6 @@ body {
     color: var(--primary-color);
 }
 
-/* İletişim Formu */
 .contact-form {
     width: 100%;
     max-width: 600px;
@@ -186,7 +180,6 @@ textarea {
     transform: scale(1.05);
 }
 
-/* Responsive Tasarım */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
@@ -194,23 +187,14 @@ textarea {
 
     .nav-links {
         gap: 1rem;
+        font-size: 0.9rem;
     }
 
     .section-title {
         font-size: 2rem;
     }
-}
 
-/* Form Stilleri */
-#contact {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-}
-
-.form-group {
-    margin-bottom: 20px;
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
