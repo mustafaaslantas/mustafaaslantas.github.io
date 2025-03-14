@@ -245,3 +245,62 @@ textarea {
     50% { transform: scale(1.05); opacity: 0.4; }
     100% { transform: scale(1); opacity: 0.8; }
 }
+/* Sosyal Medya Butonları */
+.social-floating {
+    position: fixed;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1001;
+}
+
+.social-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.15);
+    box-shadow: 0 8px 15px rgba(0, 255, 136, 0.4);
+}
+
+.x { color: #000000; }
+.instagram { color: #E1306C; }
+.linkedin { color: #0077B5; }
+.github { color: #333; }
+
+@media (max-width: 768px) {
+    .social-floating {
+        right: 15px;
+        gap: 15px;
+    }
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+.social-icon:hover i {
+    animation: pulse 0.5s ease;
+}
