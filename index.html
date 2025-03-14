@@ -45,7 +45,7 @@
     <!-- İletişim Formu -->
     <section id="contact">
         <h2>İletişim</h2>
-        <form action="https://formspree.io/f/xldjdela" method="POST">
+        <form action="https://formspree.io/f/{FORM-ID}" method="POST">
             <!-- Honeypot Spam Koruması -->
             <input type="text" name="_gotcha" style="display:none">
             
@@ -59,9 +59,20 @@
             <div class="form-group">
                 <textarea name="message" rows="5" placeholder="Mesajınız..." required></textarea>
             </div>
- <!-- reCAPTCHA -->
-            <div class="g-recaptcha" data-sitekey="6LfjtfQqAAAAADOnqF2QW6BIRbqPDfJ4tzWartRf"></div>
-    <!-- JavaScript Dosyası -->
-    <script src="./script.js"></script>
+
+            <!-- reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="SITE-KEY"></div>
+            
+            <!-- Gönder Butonu -->
+            <button type="submit" class="submit-btn">
+                <span class="btn-text">Mesaj Gönder</span>
+                <div class="loading-animation"></div>
+            </button>
+        </form>
+    </section>
+
+    <!-- Scriptler -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
