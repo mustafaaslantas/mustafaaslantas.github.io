@@ -237,7 +237,7 @@ body {
 }
 
 .photo-frame {
-    position: relative;
+    position: left;
     max-width: 400px;
     margin: 0 auto;
     border-radius: 15px;
@@ -252,7 +252,7 @@ body {
 .photo-frame img {
     width: 100%;
     border-radius: 10px;
-    position: relative;
+    position: left;
     z-index: 1;
     transition: transform 0.3s ease;
 }
