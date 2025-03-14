@@ -1,82 +1,51 @@
-// Proje Verileri (Burayı Kendine Göre Doldur)
+// Scroll Animasyonları
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section);
+});
+
+// Proje ve Yetenek Verileri
 const projects = [
-    {
-        title: "Proje 1",
-        description: "Bu benim ilk harika projem!"
-    },
-    {
-        title: "Proje 2",
-        description: "React ile yaptığım e-ticaret sitesi"
-    },
-    {
-        title: "Proje 3",
-        description: "Node.js API projesi"
-    }
+    { title: "Proje 1", description: "Lorem ipsum dolor sit amet" },
+    { title: "Proje 2", description: "Consectetur adipiscing elit" },
+    { title: "Proje 3", description: "Sed do eiusmod tempor incididunt" }
 ];
 
-// Yetenek Verileri (Burayı Kendine Göre Doldur)
 const skills = [
     "HTML5", "CSS3", "JavaScript",
     "React", "Node.js", "Python",
-    "Git", "SQL", "Photoshop"
+    "Java", "SQL", "Git"
 ];
 
 // Projeleri Yükle
 function loadProjects() {
-    const projectsGrid = document.querySelector('.projects-grid');
-    
+    const grid = document.querySelector('.projects-grid');
     projects.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.innerHTML = `
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.innerHTML = `
             <h3>${project.title}</h3>
             <p>${project.description}</p>
         `;
-        projectsGrid.appendChild(projectCard);
+        grid.appendChild(card);
     });
 }
 
 // Yetenekleri Yükle
 function loadSkills() {
-    const skillsContainer = document.querySelector('.skills-container');
-    
+    const container = document.querySelector('.skills-container');
     skills.forEach(skill => {
-        const skillItem = document.createElement('div');
-        skillItem.className = 'skill-item';
-        skillItem.textContent = skill;
-        skillsContainer.appendChild(skillItem);
-    });
-}
-
-// Scroll Animasyonları
-function setupScrollAnimations() {
-    const sections = document.querySelectorAll('.section');
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, observerOptions);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-}
-
-// Yumuşak Scroll
-function setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+        const item = document.createElement('div');
+        item.className = 'skill-item';
+        item.textContent = skill;
+        container.appendChild(item);
     });
 }
 
@@ -84,20 +53,26 @@ function setupSmoothScroll() {
 document.addEventListener('DOMContentLoaded', () => {
     loadProjects();
     loadSkills();
-    setupScrollAnimations();
-    setupSmoothScroll();
 });
 
 // Form Gönderimi
-    // Form Gönderim Animasyonu
-document.querySelector('form').addEventListener('submit', (e) => {
-    const btn = document.querySelector('.submit-btn');
-    btn.classList.add('loading');
-    btn.disabled = true;
-    setTimeout(() => {
-        btn.classList.remove('loading');
-        btn.disabled = false;
-    }, 2000);
-});
-    alert('Mesajınız gönderildi!');
+document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    try {
+        const response = await fetch(e.target.action, {
+            method: 'POST',
+            body: new FormData(e.target),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if(response.ok) {
+            alert('Mesajınız başarıyla gönderildi!');
+            e.target.reset();
+        } else {
+            throw new Error('Gönderim başarısız');
+        }
+    } catch (error) {
+        alert('Hata oluştu: ' + error.message);
+    }
 });
