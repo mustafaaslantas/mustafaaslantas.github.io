@@ -26,10 +26,14 @@ body {
 .navbar {
     position: fixed;
     width: 100%;
-    padding: 1.5rem;
+    height: 70px; /* Navbar yüksekliği */
+    padding: 1rem 2rem;
     background: rgba(26, 26, 26, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .nav-links {
@@ -364,21 +368,21 @@ textarea {
 }
 
 .hamburger {
-    display: none;
+    position: fixed; /* Sabit pozisyon */
+    right: 25px;
+    top: 25px;
+    z-index: 1002; /* Navbar'dan daha yüksek */
     cursor: pointer;
-    padding: 15px;
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    z-index: 1001;
-    background: rgba(26, 26, 26, 0.9);
+    background: rgba(0, 255, 136, 0.1);
+    padding: 12px;
     border-radius: 8px;
     transition: 0.3s;
 }
 
 .hamburger:hover {
-    background: rgba(0, 255, 136, 0.1);
+    background: rgba(0, 255, 136, 0.2);
 }
+
 
 .line {
     width: 30px;
@@ -414,6 +418,7 @@ textarea {
         backdrop-filter: blur(15px);
         border-left: 2px solid var(--accent-color);
         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+		height: calc(100vh - 70px);
     }
 
     .nav-links.active {
