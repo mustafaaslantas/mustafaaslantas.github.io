@@ -11,7 +11,7 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
+    const navLinks = document.getElementById('.navLinks');
     const hamburger = document.querySelector('.hamburger');
     
     navLinks.classList.toggle('active');
