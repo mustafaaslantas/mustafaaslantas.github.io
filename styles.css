@@ -125,7 +125,7 @@ body {
 }
 
 .profile-container {
-    position: relative;
+    position: left;
     width: 250px;
     height: 250px;
     margin: 0 auto 2rem;
