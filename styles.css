@@ -41,12 +41,18 @@ body {
     color: var(--accent-color);
     font-size: 1.5rem;
     font-weight: bold;
+	display: block;
 }
 
 .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
+    position: static; /* Desktop'ta normal pozisyon */
+    background: none;
+    width: auto;
+    height: auto;
+    backdrop-filter: none;
 }
 
 .nav-links a {
@@ -320,21 +326,23 @@ textarea {
 @media (max-width: 768px) {
     .hamburger {
         display: block;
+		order: 2;
     }
 
     .nav-links {
         position: fixed;
         top: 70px;
         right: -100%;
-        width: 100%;
+        width: 70%;
         max-width: 300px;
         height: calc(100vh - 70px);
-        flex-direction: column;
         background: rgba(26, 26, 26, 0.98);
         backdrop-filter: blur(15px);
+        flex-direction: column;
         padding: 2rem;
-        transition: 0.3s;
+        transition: right 0.3s ease-out; /* Sadece right özelliğine animasyon */
         border-left: 2px solid var(--accent-color);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
     }
 
     .nav-links.active {
