@@ -10,7 +10,37 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger');
+    
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    
+    // Menü açıkken body scroll'unu engelle
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    
+    // Dışarı tıklama dinleyicisi
+    if(navLinks.classList.contains('active')) {
+        document.addEventListener('click', closeMenuOnClickOutside);
+    } else {
+        document.removeEventListener('click', closeMenuOnClickOutside);
+    }
+}
 
+function closeMenuOnClickOutside(e) {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if(!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        toggleMenu();
+    }
+}
+
+// Linklere tıklandığında menüyü kapat
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', toggleMenu);
+});
 // Proje ve Yetenek Verileri
 const projects = [
     { title: "Proje 1", description: "Lorem ipsum dolor sit amet" },
