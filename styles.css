@@ -217,19 +217,57 @@ body {
 #certificates { background: var(--secondary-color); }
 
 .certificate-card {
+    position: relative;
+    aspect-ratio: 1/1; /* Kare format */
     overflow: hidden;
-    cursor: pointer;
-    padding: 0;
+    border-radius: 10px;
+    transition: transform 0.3s;
 }
-
+.certificate-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0,255,136,0.1) 0%, rgba(0,0,0,0.5) 100%);
+}
 .certificate-image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 3px solid var(--accent-color);
+    height: 100%;
+    object-fit: cover; /* Görselin bozulmaması için */
+    border: none;
+    transition: transform 0.3s;
 }
 
-.certificate-info { padding: 1.5rem; }
+.certificate-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(0deg, rgba(26,26,26,0.9) 30%, transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: 0.3s;
+}
+
+.certificate-card:hover .certificate-info {
+    transform: translateY(0);
+}
+@media (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .certificate-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .certificate-info p {
+        font-size: 0.8rem;
+    }
+}
 
 /* MODAL */
 .modal {
@@ -326,5 +364,91 @@ body {
         width: 45px;
         height: 45px;
         font-size: 1.2rem;
+    }
+}
+
+/* İLETİŞİM BÖLÜMÜ STİLLERİ */
+#contact {
+    background: var(--primary-color);
+    padding: 4rem 2rem;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--secondary-color);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0,255,136,0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,255,136,0.3);
+}
+
+/* MOBİL UYUMLU İLETİŞİM FORMU */
+@media (max-width: 768px) {
+    #contact {
+        padding: 2rem 1rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: 0.8rem;
+        font-size: 1rem;
     }
 }
