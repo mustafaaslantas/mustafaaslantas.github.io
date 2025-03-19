@@ -81,16 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSkills();
 const certificates = [
     {
-        title: "AWS Sertifikası",
-        image: "assets/cert-1.jpg",
-        description: "Amazon Web Services Temel Eğitimi"
+        title: "Almanca B1 - English Time",
+        image: "assets/certificates/deutsch.jpg",
+        description: "Almanca B1 Seviye Sertifikası"
     },
-    {
-        title: "React Uzmanlık",
-        image: "assets/cert-2.jpg",
-        description: "İleri Seviye React Geliştirme"
-    },
-    // Diğer sertifikalar...
+    
 ];
 
 // SERTİFİKALARI YÜKLE
