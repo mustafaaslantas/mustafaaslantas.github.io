@@ -321,7 +321,60 @@ textarea {
 .btn:hover {
     transform: scale(1.05);
 }
+#certificates {
+    background: var(--secondary-color);
+}
 
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.certificate-card {
+    background: var(--primary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+}
+
+.certificate-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.certificate-info {
+    padding: 1.5rem;
+}
+
+/* FOOTER STİLLERİ */
+.footer {
+    background: var(--primary-color);
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: auto;
+}
+
+.footer p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+}
 /* MOBILE STYLES */
 @media (max-width: 768px) {
     .hamburger {

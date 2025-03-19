@@ -74,10 +74,41 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(item);
         });
     }
+    loadCertificates();
 
     // İçerik Yüklemeleri
     loadProjects();
     loadSkills();
+const certificates = [
+    {
+        title: "AWS Sertifikası",
+        image: "assets/cert-1.jpg",
+        description: "Amazon Web Services Temel Eğitimi"
+    },
+    {
+        title: "React Uzmanlık",
+        image: "assets/cert-2.jpg",
+        description: "İleri Seviye React Geliştirme"
+    },
+    // Diğer sertifikalar...
+];
+
+// SERTİFİKALARI YÜKLE
+function loadCertificates() {
+    const grid = document.querySelector('.certificates-grid');
+    certificates.forEach(cert => {
+        const card = document.createElement('div');
+        card.className = 'certificate-card';
+        card.innerHTML = `
+            <img src="${cert.image}" alt="${cert.title}" class="certificate-image">
+            <div class="certificate-info">
+                <h3>${cert.title}</h3>
+                <p>${cert.description}</p>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
 
     // Form Gönderimi
     document.querySelector('.contact-form').addEventListener('submit', async (e) => {
