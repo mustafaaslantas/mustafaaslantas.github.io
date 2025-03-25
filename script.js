@@ -28,7 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Almanca B1 - English Time", 
             image: "assets/certificates/deutsch.jpg", 
             description: "Almanca B1 Seviye Sertifikası" 
-        }
+        },
+		{
+			title: "Patika Test Otomasyon Sertifikası",
+			image: "assets/certificates/testotomasyon.jpg", 
+			description: "Test otomasyon teknolojileri."
+	}
     ];
 
     // Fonksiyonlar
