@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "Vaadin - Java Örnek Liste Uygulaması",
-            description: "Vaadin arayüzü kullanılarak oluşturulan bu java projesinde JavaFaker kullanılarak doldurulan bir personel listesi, bu personelleri sorgulayan bir arama kutusu ve listeye yeni eleman ekleme butonu içerir. İş başvurusu mülakatı esnasında yapılmıştır.",
+            description: "Vaadin arayüzü kullanılarak oluşturulan bu Java projesi; JavaFaker kullanılarak doldurulan bir personel listesi, bu personelleri sorgulayan bir arama kutusu ve listeye yeni eleman ekleme butonu içerir. İş başvurusu mülakatı esnasında yapılmıştır.",
             github: "https://github.com/mustafaaslantas/Vaadin-Test-Case",
             tech: ["Java", "Vaadin"]
         }, 
@@ -40,8 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const skills = [
         "HTML5", "CSS3", "JavaScript",
-        "React", "Node.js", "Python",
-        "Java", "SQL", "Git"
+        "Java", "Spring", "Selenium",
+        "Appium", "Python", "Sklearn",
+		"Pandas", "SQL", "C",
+		"Git", "Docker", "Apache Kafka",
+		"", "", ""
     ];
 
     const certificates = [

@@ -74,6 +74,55 @@ body {
     width: 100%;
 }
 
+/* Sosyal Medya İkonları */
+.social-floating {
+    position: fixed;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 9999; /* Diğer elementlerin üstünde */
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-3px) scale(1.15);
+    box-shadow: 0 8px 15px rgba(0, 255, 136, 0.4);
+}
+
+/* Mobil için */
+@media (max-width: 768px) {
+    .social-floating {
+        right: 15px;
+        gap: 15px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
 /* HAMBURGER MENU */
 .hamburger {
     display: none;
@@ -110,13 +159,25 @@ body {
 }
 
 .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    text-align: center;
+    margin-bottom: 4rem !important; 
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
 }
 
 /* HOME SECTION */
 #home {
+	
     justify-content: center;
     text-align: center;
 }
@@ -163,6 +224,7 @@ body {
 }
 
 .about-content {
+	margin-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
@@ -188,21 +250,23 @@ body {
 }
 
 /* PROJECTS SECTION */
-.projects-grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 1rem;
-}
 
+.projects-grid {
+	margin-top: 2rem;
+    display: grid;
+    gap: 2rem; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 1rem;
+}
 .project-card {
     background: var(--secondary-color);
     padding: 1.5rem;
     border-radius: 10px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0,255,136,0.2);
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(0,255,136,0.1);
 }
 
 .project-card:hover {
@@ -210,14 +274,79 @@ body {
     box-shadow: 0 8px 20px rgba(0,255,136,0.1);
 }
 
+.project-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-footer {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
 .tech {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    margin: 0.25rem;
     background: rgba(0,255,136,0.1);
-    border: 1px solid var(--accent-color);
+    padding: 0.3rem 0.8rem;
     border-radius: 20px;
-    font-size: 0.85em;
+    font-size: 0.9em;
+    border: 1px solid var(--accent-color);
+}
+
+/* MOBİL UYUMLU */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        padding: 1rem;
+    }
+    
+    .project-card h3 {
+        font-size: 1.1rem;
+    }
+}
+/* SKILLS SECTION */
+.skills-container {
+	margin-top: 2rem;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 1rem;
+}
+
+.skill-item {
+    background: rgba(0,255,136,0.1);
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--accent-color);
+    backdrop-filter: blur(4px);
+}
+
+.skill-item:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,255,136,0.2);
+}
+
+/* MOBİL UYUMLU */
+@media (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+    
+    .skill-item {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* CERTIFICATES SECTION */
@@ -226,6 +355,7 @@ body {
 }
 
 .certificates-grid {
+	margin-top: 2rem;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -318,6 +448,7 @@ body {
 }
 
 .contact-form {
+	margin-top: 2rem;
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
