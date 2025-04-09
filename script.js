@@ -10,13 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImg = document.getElementById('modal-image');
     const closeModal = document.querySelector('.close-modal');
 
-    // Veri Setleri
-    const projects = [
-        { title: "Proje 1", description: "Lorem ipsum dolor sit amet" },
-        { title: "Proje 2", description: "Consectetur adipiscing elit" },
-        { title: "Proje 3", description: "Sed do eiusmod tempor incididunt" }
-    ];
-
     const skills = [
         "HTML5", "CSS3", "JavaScript",
         "React", "Node.js", "Python",
