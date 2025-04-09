@@ -68,17 +68,35 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!navLinks.contains(e.target) && !hamburger.contains(e.target)) toggleMenu();
     };
 
-    const loadProjects = () => {
+    function loadProjects() {
         const grid = document.querySelector('.projects-grid');
+        
         projects.forEach(project => {
-            grid.innerHTML += `
-                <div class="project-card">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
+            const card = document.createElement('a');
+            card.className = 'project-card';
+            card.href = project.github;
+            card.target = '_blank';
+            card.rel = 'noopener noreferrer';
+            
+            // Teknoloji etiketleri oluşturma
+            const techTags = project.tech.map(tech => 
+                `<span class="tech">${tech}</span>`
+            ).join('');
+
+            card.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="project-footer">
+                    ${techTags}
                 </div>
             `;
+            
+            grid.appendChild(card);
         });
-    };
+    }
+
+    // Çalıştır
+    loadProjects();
 
     const loadSkills = () => {
         const container = document.querySelector('.skills-container');
