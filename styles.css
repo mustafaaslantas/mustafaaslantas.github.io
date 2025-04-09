@@ -188,40 +188,25 @@ body {
 }
 
 /* PROJECTS & SKILLS */
-.project-card {
-    background: var(--secondary-color);
-    padding: 1.5rem;
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--text-color);
-    display: block;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid rgba(0,255,136,0.1);
+/* projects-grid için temel stiller */
+.projects-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,255,136,0.1);
-}
-
-.project-card h3 {
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-}
-
-.project-footer {
-    margin-top: 1rem;
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
+/* Teknoloji etiketleri için */
 .tech {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin: 0.25rem;
     background: rgba(0,255,136,0.1);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.9em;
     border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    font-size: 0.85em;
 }
 
 /* CERTIFICATES */

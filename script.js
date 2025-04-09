@@ -10,6 +10,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImg = document.getElementById('modal-image');
     const closeModal = document.querySelector('.close-modal');
 
+    // Veri Setleri
+    const projects = [
+        {
+            title: "Selenium Webdriver ile Kitap Yurdu Web Test Otomasyonu",
+            description: "Java dili ile Selenium Webdriver ve Cucumber kullanarak oluşturulmuş bir test otomasyonu. KitapYurdu.com web sitesinin temel özelliklerini test eder.",
+            github: "https://github.com/mustafaaslantas/CucumberTest2",
+            tech: ["Java", "Selenium"]
+        },
+        {
+            title: "Appium ile KitapYurdu Android Uygulaması Test Otomasyonu",
+            description: "Java dili ile Appium Driver kullanarak oluşturulmuş bir mobil test otomasyonu. Kitap Yurdu mobil uygulamasını test eder.",
+            github: "https://github.com/mustafaaslantas/AppiumProject2",
+            tech: ["Java", "Appium"]
+        },
+		{
+            title: "Vaadin - Java Örnek Liste Uygulaması",
+            description: "Vaadin arayüzü kullanılarak oluşturulan bu java projesinde JavaFaker kullanılarak doldurulan bir personel listesi, bu personelleri sorgulayan bir arama kutusu ve listeye yeni eleman ekleme butonu içerir. İş başvurusu mülakatı esnasında yapılmıştır.",
+            github: "https://github.com/mustafaaslantas/Vaadin-Test-Case",
+            tech: ["Java", "Vaadin"]
+        }
+		{
+            title: "Kişisel Web Sayfam",
+            description: "Şu an bulunduğunuz web sayfası :)",
+            github: "https://github.com/mustafaaslantas/mustafaaslantas.github.io",
+            tech: ["HTML", "CSS", "JavaScript"]
+        }
+  
+    ];
     const skills = [
         "HTML5", "CSS3", "JavaScript",
         "React", "Node.js", "Python",
