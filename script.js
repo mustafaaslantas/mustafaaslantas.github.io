@@ -24,20 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
             github: "https://github.com/mustafaaslantas/AppiumProject2",
             tech: ["Java", "Appium"]
         },
-		{
+        {
             title: "Vaadin - Java Örnek Liste Uygulaması",
             description: "Vaadin arayüzü kullanılarak oluşturulan bu java projesinde JavaFaker kullanılarak doldurulan bir personel listesi, bu personelleri sorgulayan bir arama kutusu ve listeye yeni eleman ekleme butonu içerir. İş başvurusu mülakatı esnasında yapılmıştır.",
             github: "https://github.com/mustafaaslantas/Vaadin-Test-Case",
             tech: ["Java", "Vaadin"]
-        }
-		{
+        }, 
+        {
             title: "Kişisel Web Sayfam",
             description: "Şu an bulunduğunuz web sayfası :)",
             github: "https://github.com/mustafaaslantas/mustafaaslantas.github.io",
             tech: ["HTML", "CSS", "JavaScript"]
         }
-  
     ];
+
     const skills = [
         "HTML5", "CSS3", "JavaScript",
         "React", "Node.js", "Python",
@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "assets/certificates/deutsch.jpg", 
             description: "Almanca B1 Seviye Sertifikası" 
         },
-		{
-			title: "Patika Test Otomasyon Sertifikası",
-			image: "assets/certificates/testotomasyon.jpg", 
-			description: "Test otomasyon teknolojileri."
-	}
+        { 
+            title: "Patika Test Otomasyon Sertifikası",
+            image: "assets/certificates/testotomasyon.jpg", 
+            description: "Test otomasyon teknolojileri."
+        }
     ];
 
     // Fonksiyonlar
@@ -68,81 +68,85 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!navLinks.contains(e.target) && !hamburger.contains(e.target)) toggleMenu();
     };
 
-    function loadProjects() {
+    const loadProjects = () => {
         const grid = document.querySelector('.projects-grid');
-        
-        projects.forEach(project => {
-            const card = document.createElement('a');
-            card.className = 'project-card';
-            card.href = project.github;
-            card.target = '_blank';
-            card.rel = 'noopener noreferrer';
-            
-            // Teknoloji etiketleri oluşturma
-            const techTags = project.tech.map(tech => 
-                `<span class="tech">${tech}</span>`
-            ).join('');
-
-            card.innerHTML = `
+        grid.innerHTML = projects.map(project => `
+            <a href="${project.github}" 
+               class="project-card"
+               target="_blank"
+               rel="noopener noreferrer">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
                 <div class="project-footer">
-                    ${techTags}
+                    ${project.tech.map(t => `<span class="tech">${t}</span>`).join('')}
                 </div>
-            `;
-            
-            grid.appendChild(card);
-        });
-    }
-
-    // Çalıştır
-    loadProjects();
+            </a>
+        `).join('');
+    };
 
     const loadSkills = () => {
         const container = document.querySelector('.skills-container');
-        skills.forEach(skill => {
-            container.innerHTML += `
-                <div class="skill-item">${skill}</div>
-            `;
-        });
+        container.innerHTML = skills.map(skill => `
+            <div class="skill-item">${skill}</div>
+        `).join('');
     };
 
     const loadCertificates = () => {
         const grid = document.querySelector('.certificates-grid');
-        certificates.forEach(cert => {
-            const card = document.createElement('div');
-            card.className = 'certificate-card';
-            card.innerHTML = `
-                <img src="${cert.image}" alt="${cert.title}" class="certificate-image">
+        grid.innerHTML = certificates.map(cert => `
+            <div class="certificate-card">
+                <img src="${cert.image}" 
+                     alt="${cert.title}" 
+                     class="certificate-image"
+                     loading="lazy">
                 <div class="certificate-info">
                     <h3>${cert.title}</h3>
                     <p>${cert.description}</p>
                 </div>
-            `;
-            card.addEventListener('click', () => {
-                modalImg.src = cert.image;
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-            grid.appendChild(card);
-        });
+            </div>
+        `).join('');
     };
 
     // Event Listeners
     hamburger.addEventListener('click', toggleMenu);
-    document.addEventListener('click', (e) => navLinks.classList.contains('active') && closeMenuOnClickOutside(e));
+    
+    document.addEventListener('click', (e) => {
+        if(navLinks.classList.contains('active')) {
+            closeMenuOnClickOutside(e);
+        }
+    });
+
     closeModal.addEventListener('click', () => {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
     });
-    window.addEventListener('click', (e) => e.target === modal && closeModal.click());
-    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', toggleMenu));
+
+    window.addEventListener('click', (e) => {
+        if(e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', toggleMenu);
+    });
 
     // İlk Yüklemeler
     document.querySelectorAll('.section').forEach(section => observer.observe(section));
     loadProjects();
     loadSkills();
     loadCertificates();
+
+    // Sertifika Kart Event'leri
+    document.querySelectorAll('.certificate-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const imgSrc = card.querySelector('img').src;
+            modalImg.src = imgSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
 
     // Form Gönderimi
     document.querySelector('.contact-form').addEventListener('submit', async (e) => {
@@ -153,10 +157,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: new FormData(e.target),
                 headers: { 'Accept': 'application/json' }
             });
-            response.ok ? (alert('Mesajınız başarıyla gönderildi!'), e.target.reset()) 
-                       : alert('Gönderim başarısız!');
+            
+            if(!response.ok) throw new Error('Sunucu hatası: ' + response.status);
+            
+            alert('Mesajınız başarıyla gönderildi!');
+            e.target.reset();
         } catch (error) {
-            alert('Hata oluştu: ' + error.message);
+            alert('Hata oluştu: ' + (error.message || 'Bilinmeyen hata'));
         }
     });
 });

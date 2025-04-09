@@ -187,8 +187,7 @@ body {
     border-radius: 10px;
 }
 
-/* PROJECTS & SKILLS */
-/* projects-grid için temel stiller */
+/* PROJECTS SECTION */
 .projects-grid {
     display: grid;
     gap: 1.5rem;
@@ -198,7 +197,19 @@ body {
     padding: 0 1rem;
 }
 
-/* Teknoloji etiketleri için */
+.project-card {
+    background: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,255,136,0.2);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,255,136,0.1);
+}
+
 .tech {
     display: inline-block;
     padding: 0.25rem 0.75rem;
@@ -209,36 +220,39 @@ body {
     font-size: 0.85em;
 }
 
-/* CERTIFICATES */
-#certificates { background: var(--secondary-color); }
-.certificates-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 1rem; 
+/* CERTIFICATES SECTION */
+#certificates {
+    background: var(--secondary-color);
 }
+
+.certificates-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
 .certificate-card {
     position: relative;
-    aspect-ratio: 1/1; /* Kare format */
-    max-width: 250px; /* Maksimum genişlik sınırı */
-    margin: 0 auto; /* Ortala */
+    aspect-ratio: 1/1;
+    max-width: 250px;
+    margin: 0 auto;
     overflow: hidden;
     border-radius: 10px;
     transition: transform 0.3s;
-    background: var(--secondary-color); /* Arkaplan rengi */
+    background: var(--secondary-color);
 }
 
-.certificate-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(0,255,136,0.1) 0%, rgba(0,0,0,0.5) 100%);
+.certificate-card:hover {
+    transform: translateY(-5px);
 }
+
 .certificate-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Görseller bozulmasın */
+    object-fit: cover;
     border: 2px solid var(--accent-color);
 }
 
@@ -257,16 +271,6 @@ body {
 .certificate-card:hover .certificate-info {
     transform: translateY(0);
 }
-@media (max-width: 768px) {
-    .certificates-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Mobilde küçük kutucuklar */
-        gap: 0.5rem;
-    }
-    
-    .certificate-card {
-        max-width: 150px; /* Mobilde maksimum genişlik */
-    }
-}
 
 /* MODAL */
 .modal {
@@ -282,7 +286,9 @@ body {
     align-items: center;
 }
 
-.modal.active { display: flex; }
+.modal.active {
+    display: flex;
+}
 
 .modal-content {
     width: 90%;
@@ -301,7 +307,66 @@ body {
     transition: 0.3s;
 }
 
-.close-modal:hover { transform: scale(1.2); }
+.close-modal:hover {
+    transform: scale(1.2);
+}
+
+/* CONTACT SECTION */
+#contact {
+    background: var(--primary-color);
+    padding: 4rem 2rem;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--secondary-color);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0,255,136,0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,255,136,0.3);
+}
 
 /* FOOTER */
 .footer {
@@ -321,7 +386,6 @@ body {
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        order: 2;
     }
 
     .nav-links {
@@ -330,19 +394,14 @@ body {
         right: -100%;
         width: 70%;
         height: calc(100vh - 70px);
-        background: rgba(26, 26, 26, 0.98);
+        background: rgba(26,26,26,0.98);
         flex-direction: column;
         padding: 2rem;
         transition: right 0.3s;
     }
 
-    .nav-links.active { right: 0; }
-
-    .about-content,
-    .projects-grid,
-    .skills-container,
-    .certificates-grid {
-        grid-template-columns: 1fr;
+    .nav-links.active {
+        right: 0;
     }
 
     .section {
@@ -351,7 +410,24 @@ body {
 
     .section-title {
         font-size: 2rem;
-        margin-bottom: 2rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .photo-frame {
+        max-width: 300px;
+        margin: 2rem auto 0;
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .certificate-card {
+        max-width: 150px;
     }
 
     .social-floating {
@@ -359,95 +435,7 @@ body {
         gap: 15px;
     }
 
-    .social-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-}
-
-/* İLETİŞİM BÖLÜMÜ STİLLERİ */
-#contact {
-    background: var(--primary-color);
-    padding: 4rem 2rem;
-}
-
-.contact-form {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    background: var(--secondary-color);
-    border: 2px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-    color: var(--text-color);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 10px rgba(0,255,136,0.2);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-
-.btn {
-    display: inline-block;
-    width: 100%;
-    padding: 1rem;
-    background: var(--accent-color);
-    color: var(--primary-color);
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,255,136,0.3);
-}
-
-/* MOBİL UYUMLU İLETİŞİM FORMU */
-@media (max-width: 768px) {
     #contact {
         padding: 2rem 1rem;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-    }
-    
-    .btn {
-        padding: 0.8rem;
-        font-size: 1rem;
     }
 }
