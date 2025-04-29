@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImg = document.getElementById('modal-image');
     const closeModal = document.querySelector('.close-modal');
 
+	
     // Veri Setleri
     const projects = [
         {
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 
         {
             title: "Kişisel Web Sayfam",
-            description: "Şu an bulunduğunuz web sayfası :)",
+            description: "Şu an bulunduğunuz web sayfası.",
             github: "https://github.com/mustafaaslantas/mustafaaslantas.github.io",
             tech: ["HTML", "CSS", "JavaScript"]
         }
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const certificates = [
-        { 
+		{ 
             title: "Almanca B1 - English Time", 
             image: "assets/certificates/deutsch.jpg", 
             description: "Almanca B1 Seviye Sertifikası" 
@@ -57,6 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Patika Test Otomasyon Sertifikası",
             image: "assets/certificates/testotomasyon.jpg", 
             description: "Test otomasyon teknolojileri."
+        },
+		{ 
+            title: "Microservisler ile Modern Yazılım Geliştirme: Teoriden Pratiğe",
+            image: "assets/certificates/microservice.jpg", 
+            description: "Mikroservisler ile modern yazılım geliştirme teknolojileri."
+        },
+		{ 
+            title: "Agile 101",
+            image: "assets/certificates/agile101.jpg", 
+            description: "Agile ve Scrum bakış açısının temel kuralları."
+        },
+        
+		{ 
+            title: "Mülakat Teknikleri",
+            image: "assets/certificates/mulakat.jpg", 
+            description: "Mülakat teknikleri ve püf noktaları."
         }
     ];
 
