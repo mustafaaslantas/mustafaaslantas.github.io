@@ -13,6 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	
     // Veri Setleri
     const projects = [
+	{
+            title: "Kitap Yönetim Sistemi",
+            description: "Java ve Thymeleaf ile Kitap Yönetim Uygulaması",
+            github: "https://github.com/mustafaaslantas/BookManagementSystem",
+            tech: ["Java", "Spring"]
+        },
+	{
+            title: "Sohbet Uygulaması",
+            description: "Java ile yazılmış gerçek zamanlı sohbet uygulaması",
+            github: "https://github.com/mustafaaslantas/RealTimeChatApp",
+            tech: ["Java", "Spring"]
+        },
         {
             title: "Selenium Webdriver ile Kitap Yurdu Web Test Otomasyonu",
             description: "Java dili ile Selenium Webdriver ve Cucumber kullanarak oluşturulmuş bir test otomasyonu. KitapYurdu.com web sitesinin temel özelliklerini test eder.",
